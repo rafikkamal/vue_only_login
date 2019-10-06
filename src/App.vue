@@ -1,19 +1,12 @@
 <template>
   <div id="app">
-    <Login/>
+    <div id="nav">
+      <router-link to="/login">Login</router-link> | 
+      <router-link to="/users">Users</router-link>
+    </div>
+    <router-view/>
   </div>
 </template>
-
-<script>
-import Login from './components/Login.vue'
-
-export default {
-  name: 'app',
-  components: {
-    Login
-  }
-}
-</script>
 
 <style>
 #app {
@@ -22,5 +15,9 @@ export default {
   -moz-osx-font-smoothing: grayscale;
   text-align: center;
   color: #2c3e50;
+}
+#nav {
+  padding: 10px 0px;
+  margin-bottom: 20px;
 }
 </style>

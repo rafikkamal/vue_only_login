@@ -4,8 +4,7 @@
       <img src="/loading.gif" alt="Loading Icon">
     </div>
     <p v-if="loginError">{{ loginError }}</p>
-    <p v-if="loginSuccessful">Login Successful</p>
-    <form @submit.prevent="loginSubmit" v-if="!loggedIn">
+    <form @submit.prevent="loginSubmit">
       <input type="email" placeholder="E-Mail" v-model="email">
       <input type="password" placeholder="Password" v-model="password">
       <button type="submit">Login</button>
@@ -19,16 +18,14 @@ import { mapState, mapActions } from 'vuex';
 export default {
 	data() {
 	  return {
-	    email: '',
-	    password: ''
+	    email: 'michael.lawson@reqres.in',
+	    password: '123123'
 	  }
 	},
 	computed: {
 	  ...mapState([
 	    'loggingIn',
 	    'loginError',
-	    'loginSuccessful',
-	    'loggedIn',
 	  ])
 	},
 	methods: {
