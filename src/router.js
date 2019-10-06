@@ -28,13 +28,17 @@ const router = new Router({
 
 router.beforeEach((to, from, next) => {
   store.dispatch('fetchAccessToken');
+  console.log("from: "+from.fullPath);
+  console.log("to: "+to.fullPath);
   if (to.fullPath === '/users') {
     if (!store.state.accessToken) {
       next('/login');
     }
   }
   if (to.fullPath === '/login') {
+    console.log("checking login")
     if (store.state.accessToken) {
+      console.log("has accessToken")
       next('/users');
     }
   }
